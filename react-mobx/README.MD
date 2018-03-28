@@ -13,3 +13,6 @@
 1. `npm run build`
 
 2. 拷贝dist文件夹至服务器即可
+
+precss : 允许&嵌套 引用变量
+

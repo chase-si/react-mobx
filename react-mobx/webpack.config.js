@@ -1,33 +1,67 @@
 const path = require('path');
+const precss = require('precss');
+const cssnext = require('postcss-cssnext');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const webpack = require('webpack');
 
 module.exports = {
 
-    /*入口*/
-    entry: path.join(__dirname, '../src/index.js'),
+    entry: path.join(__dirname, './src/index.js'),
 
-    /*输出到dist文件夹，输出文件名字为main.js*/
     output: {
-        path: path.join(__dirname, '../dist'),
+        path: path.join(__dirname, './dist'),
         filename: 'main.js'
     },
+    // devtool: 'inline-source-map',
 
-    /*src文件夹下面的以.js结尾的文件，要使用babel解析*/
-    /*cacheDirectory是用来缓存编译结果，下次编译加速*/
+    plugins: [
+        new CleanWebpackPlugin(['dist']),
+        new HtmlWebpackPlugin({
+            title: 'Production'
+        }),
+        new webpack.NamedModulesPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+    ],
+
+    devServer: {
+        contentBase: './dist',
+        hot: true
+    },
+
     module:{
         rules: [
             {
                 test: /\.(js|jsx)$/,
                 include: /src/,
-                use: ['babel-loader?cacheDirectory=true'],
+                use: ['babel-loader?cacheDirectory=true']
             },
             {
                 test: /\.css$/,
-                include: /src/,
-                use: [ 'style-loader', 'css-loader']
+                use: [
+                    {loader: "style-loader"},
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: true,
+                            importLoaders: 1,
+                            localIdentName:'[local]___[hash:base64:5]'
+                        }
+                    },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            plugins: [precss, cssnext]
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                include: /src/img,
+                use: ['file-loader']
             }
-
         ]
-    },
-
-
+    }
 };

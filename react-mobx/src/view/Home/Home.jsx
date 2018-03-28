@@ -1,11 +1,13 @@
 import React, { PureComponent } from 'react';
-import Style from './home.css';
+import cssModules from 'react-css-modules';
+import Style from './Home.css';
 
+@cssModules(Style)
 export default class Home extends PureComponent {
     render(){
         return (
             <div>
-                <div className={Style.test}>
+                <div styleName="test">
                     Home
                 </div>
             </div>
