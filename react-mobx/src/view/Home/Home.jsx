@@ -4,7 +4,7 @@ import Style from './Home.css';
 
 @cssModules(Style)
 export default class Home extends PureComponent {
-    render(){
+    render() {
         return (
             <div>
                 <div styleName="test">

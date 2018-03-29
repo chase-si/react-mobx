@@ -1,36 +1,25 @@
 const path = require('path');
-const precss = require('precss');
-const cssnext = require('postcss-cssnext');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const webpack = require('webpack');
+const precss = require('precss');
+const cssnext = require('postcss-cssnext');
 
 module.exports = {
-
-    entry: path.join(__dirname, './src/index.js'),
-
-    output: {
-        path: path.join(__dirname, './dist'),
-        filename: 'main.js'
+    entry: {
+        app: './src/index.jsx'
     },
-    // devtool: 'inline-source-map',
-
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
-            title: 'Production'
-        }),
-        new webpack.NamedModulesPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
+            filename: 'index.html',
+            template: './src/index.html'
+        })
     ],
-
-    devServer: {
-        contentBase: './dist',
-        hot: true
+    output: {
+        filename: 'main.js',
+        path: path.resolve(__dirname, 'dist')
     },
-
-    module:{
+    module: {
         rules: [
             {
                 test: /\.(js|jsx)$/,
@@ -40,17 +29,17 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
-                    {loader: "style-loader"},
+                    { loader: 'style-loader' },
                     {
-                        loader: "css-loader",
+                        loader: 'css-loader',
                         options: {
                             modules: true,
                             importLoaders: 1,
-                            localIdentName:'[local]___[hash:base64:5]'
+                            localIdentName: '[local]___[hash:base64:5]'
                         }
                     },
                     {
-                        loader: "postcss-loader",
+                        loader: 'postcss-loader',
                         options: {
                             plugins: [precss, cssnext]
                         }

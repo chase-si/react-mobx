@@ -1,0 +1,38 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+        "browser": true,
+        "node": true,
+        "commonjs": true
+    },
+    "settings": {
+        "import/resolver": {
+            "webpack": {
+                "config": "webpack/webpack.common.js"
+            }
+        }
+    },
+    "rules": {
+        "arrow-parens": ["error", "as-needed"],
+        "class-methods-use-this": "off",
+        "comma-dangle": ["error", "only-multiline", {"functions": "never"}],
+        "default-case": "off",
+        "experimentalDecorators": "off",
+        "func-names": "off",
+        "function-paren-newline": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "jsx-a11y/label-has-for": "off",
+        "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "linebreak-style": "off",
+        "no-unused-vars": ["error", { "args": "none" }],
+        "object-curly-newline": ["error", { "consistent": true }],
+        "prefer-destructuring": ["error", {"object": true, "array": false}],
+        "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
+        "react/jsx-indent": "off",
+        "react/jsx-indent-props": "off",
+        "react/prop-types": "off",
+        "react/require-extension": "off"
+    }
+}
