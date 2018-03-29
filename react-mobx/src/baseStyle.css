@@ -1,0 +1,24 @@
+@import "../node_modules/normalize.css/normalize.css";
+
+:root{
+    --global-transition: all .2s ease;
+
+    /* color */
+    --red: #ff1744;
+    --light-red: #ff4951;
+    --blue: #20a0ff;
+    --light-blue: #58b7ff;
+    --dark-blue: #1d8ce0;
+    --green: #2cd7aa;
+
+    --text-gray: rgba(38, 50, 56, .87);
+    --text-light-gray: rgba(38, 50, 56, .54);
+    --text-lighter-gray: rgba(38, 50, 56, .38);
+    --border-gray: #e7e7e7;
+
+    --success: #13ce66;
+    --warning: #f7ba2a;
+    --warningB: #ff920b;
+    --danger: #ff4949;
+    --dangerB: #ff5f00;
+}

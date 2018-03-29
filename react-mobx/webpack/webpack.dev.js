@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
+    devtool: 'source-map',
     devServer: {
         contentBase: './dist',
         compress: true,

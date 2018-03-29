@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 
 export default class Page extends PureComponent {
-    render(){
+    render() {
         return (
             <div>
                 Page

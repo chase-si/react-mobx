@@ -2,11 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-import Root from './view/Root.jsx';
+import Root from './view/Root';
 
 render(
     <BrowserRouter>
-        <Route component={Root} />
+        <Route path="/" component={Root} />
     </BrowserRouter>,
     document.getElementById('app')
 );
