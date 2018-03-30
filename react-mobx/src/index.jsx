@@ -6,7 +6,7 @@ import Root from './view/Root';
 
 render(
     <BrowserRouter>
-        <Route path="/" component={Root} />
+        <Route component={Root} />
     </BrowserRouter>,
     document.getElementById('app')
 );
