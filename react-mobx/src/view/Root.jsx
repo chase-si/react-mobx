@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home/index';
 import Page from './Page/index';
 
-export default class Root extends PureComponent{
+export default class Root extends PureComponent {
     render() {
         return (
             <Router>

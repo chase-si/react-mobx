@@ -7,8 +7,10 @@ module.exports = merge(common, {
     devServer: {
         contentBase: '../dist',
         compress: true,
+        // host: '0.0.0.0',
         hot: true,
-        port: 9000
+        port: 8080,
+        historyApiFallback: true,
     },
     plugins: [
         new webpack.NamedModulesPlugin(),
