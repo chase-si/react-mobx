@@ -1,21 +1,19 @@
 import React, { PureComponent } from 'react';
 import cssModules from 'react-css-modules';
-import Style from './home.css';
-import Img from '../../img/timg.png';
+import style from './Home.css';
 
-import { getConfiguration } from '../../api/main';
+import dogImg from '../../img/timg.png';
 
-@cssModules(Style)
+@cssModules(style)
 export default class Home extends PureComponent {
     render() {
-        getConfiguration();
         return (
             <div>
                 <div styleName="test">
                     Home
                 </div>
                 <div>
-                    <img src={Img} alt="" />
+                    <img src={dogImg} alt="" />
                 </div>
             </div>
         );
